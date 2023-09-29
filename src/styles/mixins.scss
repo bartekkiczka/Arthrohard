@@ -1,0 +1,6 @@
+@mixin headingGradient {
+  background: linear-gradient(to right, #000000 30%, #b1b1b1 50%, #000000 75%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

@@ -1,0 +1,103 @@
+@import '../../styles/variables.scss';
+
+.navbar {
+  width: 100%;
+  height: 100px;
+  position: fixed;
+  box-shadow: 0 4px 4px 0 rgba($c-navbarShadow, 0.25);
+  background-color: white;
+  z-index: 100;
+
+  &__content {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+
+    &-logo {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      margin: 0;
+
+      p {
+        font-size: 30px;
+        font-weight: 500;
+      }
+
+      p:last-of-type {
+        color: $c-mainRed;
+      }
+    }
+  }
+
+  &__navigator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    &-element {
+      position: relative;
+      margin: 0 20px;
+      p {
+        cursor: pointer;
+        margin: 0;
+
+        &.element-selected {
+          font-weight: bold;
+        }
+      }
+
+      &-underline {
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: black;
+        opacity: 0;
+      }
+
+      &-underline-hovered {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .navbar {
+    &__content {
+      width: 90%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__navigator {
+      transform: translate(0);
+      position: static;
+
+      &-element {
+        &:last-of-type {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .navbar {
+    &__content {
+      &-logo {
+        display: none;
+      }
+    }
+
+    &__navigator {
+      margin: 0 auto;
+    }
+  }
+}

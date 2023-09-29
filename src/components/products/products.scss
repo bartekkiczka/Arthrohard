@@ -1,0 +1,142 @@
+@import '../../styles/variables.scss';
+
+.products {
+  &__amount {
+    display: flex;
+    align-items: center;
+    border: 1px solid $c-mainRed;
+    width: fit-content;
+    height: 40px;
+    margin: 100px auto;
+
+    p {
+      margin: 0 10px;
+    }
+
+    div {
+      background-color: $c-mainRed;
+      height: 100%;
+      width: 90px;
+      display: flex;
+      justify-content: center;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 65%;
+        width: 7px;
+        height: 7px;
+        transform: translate(0%, -75%) rotateZ(45deg);
+        border-bottom: 2px solid white;
+        border-right: 2px solid white;
+      }
+    }
+
+    select {
+      background-color: $c-mainRed;
+      width: 100%;
+      text-align: center;
+      color: white;
+      outline: none;
+      border: none;
+      border-radius: 0 !important;
+      font-weight: bold;
+      position: relative;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+  }
+
+  &__content {
+    width: 80%;
+    margin: 0 auto;
+    &-tiles {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+  }
+  &__tile {
+    margin: 20px 0;
+    flex-basis: 23%;
+    height: 300px;
+    background-color: #bebebe;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 450;
+    cursor: pointer;
+
+    &-popup {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 100000;
+      background-color: rgba(0, 0, 0, 0.5);
+      animation: showPopup 0.5s;
+
+      &-content {
+        position: absolute;
+        padding: 10px 20px;
+        width: 40%;
+        top: 50%;
+        left: 50%;
+        height: fit-content;
+        background-color: white;
+        transform: translate(-50%, -50%);
+        border-radius: 8px;
+      }
+
+      &-cross {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 2px;
+          top: 50%;
+          left: 50%;
+          background-color: black;
+        }
+
+        &::before {
+          transform: translate(-50%, -50%) rotateZ(45deg);
+        }
+
+        &::after {
+          transform: translate(-50%, -50%) rotateZ(-45deg);
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .products {
+    &__tile {
+      flex-basis: 45%;
+    }
+  }
+}
+
+@keyframes showPopup {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,291 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+.composition {
+  position: relative;
+  h3,
+  &-heading {
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 40px;
+    @include headingGradient;
+  }
+
+  &__dog {
+    margin-top: 100px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    img:first-of-type {
+      margin: 0 auto;
+    }
+
+    &-vector3,
+    &-vector4 {
+      position: absolute;
+      z-index: -1;
+    }
+
+    &-vector3 {
+      left: 32%;
+      top: 30%;
+      transform: rotateZ(-30deg);
+    }
+
+    &-vector4 {
+      right: 25%;
+      top: 20%;
+      transform: rotateZ(30deg);
+    }
+  }
+
+  &__content {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+
+    &-mid {
+      margin: 0 20px;
+      text-align: center;
+      position: relative;
+
+      img {
+        height: 100%;
+        width: auto;
+      }
+
+      button {
+        border: none;
+        width: 170px;
+        height: 40px;
+        background-color: $c-mainRed;
+        outline: none;
+        font-weight: bold;
+        font-size: 20px;
+        color: white;
+        cursor: pointer;
+        position: absolute;
+        bottom: 0%;
+        right: 50%;
+        transform: translate(50%, 0%);
+      }
+
+      &-vector1,
+      &-vector2 {
+        position: absolute;
+        height: fit-content !important;
+        z-index: -1;
+      }
+
+      &-vector1 {
+        top: 55%;
+        right: 63%;
+        transform: translate(-0%, -50%) rotateZ(0deg);
+      }
+
+      &-vector2 {
+        top: 30%;
+        left: 70%;
+      }
+    }
+  }
+
+  &__ingredient {
+    text-align: center;
+
+    &-picture {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #d9d9d9;
+      margin: 0 auto;
+    }
+
+    &-name {
+      font-weight: 450;
+      font-size: 25px;
+      position: relative;
+
+      div {
+        width: 50%;
+        height: 1px;
+        background-color: black;
+        position: absolute;
+        bottom: -10px;
+        right: 0;
+        transform: translate(-50%);
+      }
+    }
+
+    &-description {
+      width: 80%;
+      margin: 20px auto;
+    }
+  }
+}
+
+@media only screen and (max-width: 1750px) {
+  .composition {
+    &__content {
+      width: 90%;
+
+      &-mid {
+        img {
+          height: 80%;
+        }
+
+        button {
+          bottom: 20%;
+        }
+
+        &-vector1,
+        &-vector2 {
+          width: 200px !important;
+        }
+
+        &-vector1 {
+          top: 40%;
+        }
+
+        &-vector2 {
+          top: 20%;
+        }
+      }
+    }
+
+    &__dog {
+      margin-top: 0;
+
+      img:first-of-type {
+        width: 900px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1250px) {
+  .composition {
+    &__content {
+      flex-direction: column;
+      margin-top: 50px;
+
+      &-mid {
+        button {
+          bottom: 5%;
+        }
+      }
+
+      &-right,
+      &-left {
+        display: flex;
+        justify-content: space-evenly;
+      }
+    }
+
+    &__ingredient {
+      width: 30%;
+    }
+
+    &__dog {
+      margin-top: 50px;
+
+      img:first-of-type {
+        width: 700px;
+      }
+
+      &-vector3,
+      &-vector4 {
+        width: 150px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .composition {
+    &__content {
+      &-mid {
+        img {
+          width: 50%;
+        }
+      }
+    }
+
+    &__dog {
+      img:first-of-type {
+        width: 600px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .composition {
+    &__content {
+      &-right,
+      &-left {
+        flex-direction: column;
+      }
+
+      &-mid {
+        margin-bottom: 50px;
+        &-vector1,
+        &-vector2 {
+          width: 150px !important;
+        }
+
+        &-vector1 {
+          right: 60%;
+        }
+
+        &-vector2 {
+          left: 60%;
+        }
+
+        button {
+          bottom: 10px;
+        }
+      }
+    }
+
+    &__dog {
+      img:first-of-type {
+        width: 400px;
+      }
+
+      &-vector3 {
+        top: 0%;
+      }
+
+      &-vector4 {
+        top: 10%;
+      }
+    }
+
+    &__ingredient {
+      width: 100%;
+    }
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .composition {
+    &__content {
+      &-mid {
+        &-vector1,
+        &-vector2 {
+          width: 100px !important;
+        }
+
+        button {
+          bottom: 0;
+        }
+      }
+    }
+  }
+}
